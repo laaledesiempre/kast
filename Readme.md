@@ -95,7 +95,9 @@ my-bookrack
 │       └── index.yaml
 └── kast # ...
 ```
-now we have a spell on a chapter, on a book, on a bookrack, bow we have to add the bookrack to argoCD and let Kast do the rest.
+now we have a spell on a chapter, on a book, on a bookrack, now we have to add the bookrack to argoCD and let Kast do the rest.
+
+create a new manifest like this one and apply it.
 
 ```yaml
 apiVersion: argoproj.io/v1alpha1
