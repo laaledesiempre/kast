@@ -5,8 +5,7 @@
 
 ### Description
 
-> [!WANING]
-> WIP
+> Todo!
 
 ## How to use Kast
 
@@ -34,22 +33,23 @@ Now create a directory with the name `bookrack` to manage your books inside
 
 ```bash
 mkdir bookrack
-cd bookrack
+cd bookrack # my-bookrack/bookrack
 ```
 
 After that, you are ready to setup your first book, now, lets make it, as an example this book is going to be called "my-first-book"
 
 > [!WARNING]
-> name must be lower case to compy with kubernetes namerules
+> name must be lower case to comply with kubernetes namerules
 
 ```bash
 mkdir my-first-book
-cd my-first-book
+cd my-first-book #my-bookrack/bookrack/my-first-book
 ```
 
 A book needs an `index.yaml` file that says the "chapters" and book name, just like this.
 
 ```yaml
+#my-bookrack/bookrack/my-first-book/index.yaml
 name: my-first-book
 chapters:
    - production
@@ -57,16 +57,17 @@ chapters:
 > [!IMPORTANT]
 > Chapters have to be added manually so you can work with you repo without having to sync non-ready chapters
 
-as you seen we added a chapter named production so we have to add the chapter!
+as you seen we added a chapter named production so we have to add this chapter's directory!
 
 ```bash
 mkdir production
-cd production
+cd production #my-bookrack/bookrack/my-first-book/production
 ```
 
 You can add index files and more stuff on chapters but for this basic instalation guide, we are going to just add a spell (app), which looks something like this:
 
 ```yaml
+#my-bookrack/bookrack/my-first-book/production/app-name.yaml
 name: app-name
 repository: git@github.com:helmchart/chart.git
 path: /path/to/chart
@@ -83,6 +84,17 @@ appParams:
 
 now we can git add, commit and push all out changes to a remote repo. lets imagine is in `me/my-bookrack`
 
+your directory tree should look like this:
+```
+my-bookrack
+│
+├── bookrack
+│   └── my-first-book
+│       ├── production
+│       │   └── app-name.yaml
+│       └── index.yaml
+└── kast # ...
+```
 now we have a spell on a chapter, on a book, on a bookrack, bow we have to add the bookrack to argoCD and let Kast do the rest.
 
 ```yaml
