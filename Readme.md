@@ -101,7 +101,7 @@ now we have a spell on a chapter, on a book, on a bookrack, bow we have to add t
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: my-bookshelf 
+  name: my-bookrack
   namespace: argocd
 spec:
   project: default
